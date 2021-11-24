@@ -41,4 +41,22 @@ public class SeleniumClass05 {
 
 
         
-}}
+}
+@Test
+    public void test02(){
+    WebDriverManager.chromedriver().setup();
+    WebDriver driver = new ChromeDriver();
+    driver.manage().window().maximize();
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
+    driver.get("https://the-internet.herokuapp.com/");
+    WebElement checkBox=driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[13]/a"));
+    checkBox.click();
+    WebElement aktifMi=driver.findElement(By.xpath("//input[@type='text']"));
+
+
+    boolean aktifDegil=aktifMi.isEnabled();
+    System.out.println("aktifDegil = " + aktifDegil);
+}
+
+}
+
