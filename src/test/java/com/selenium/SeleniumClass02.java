@@ -10,12 +10,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class SeleniumClass02 {
+public  class  SeleniumClass02 {
 
-    WebDriver driver;
+   static WebDriver driver;
 
     @Test
-    public  void test02(){
+    public static   void test02(){
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
         driver.manage().window().maximize();
@@ -48,11 +48,14 @@ public class SeleniumClass02 {
     }
     @Test
     public void test2(){
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
+        //WebDriverManager.chromedriver().setup();
+        driver=new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.MILLISECONDS);
+      //  driver.get("https://www.google.com/search?q=bebek+arabasi");
         driver.get("https://www.google.com");
+
+        driver.findElement(By.xpath("//input[@name='q']")).sendKeys("Bebek arabasi"+Keys.ENTER);
 
 
 
